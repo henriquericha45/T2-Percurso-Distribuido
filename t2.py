@@ -13,8 +13,7 @@ STERM = {'OK'}
 RESTRICTIONS = {'CN', 'TR', 'BL', 'UI'}
 
 # Pyro5 configuration
-Pyro5.config.SERIALIZERS_ACCEPTED.add('pickle')
-Pyro5.config.SERIALIZER = 'pickle'
+Pyro5.config.SERIALIZER = 'serpent'
 
 
 class Node:
@@ -70,7 +69,7 @@ class Node:
 
 def main():
     # Start the Pyro5 name server
-    Pyro5.api.locate_ns()
+    Pyro5.api.start_ns()
 
     # Create a Pyro5 daemon
     daemon = Pyro5.api.Daemon()
